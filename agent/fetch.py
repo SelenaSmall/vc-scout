@@ -31,6 +31,10 @@ def fetch_articles():
         print(f"[error] Failed to fetch feed: {feed.bozo_exception}")
         return []
     return [
-        {"title": entry.title, "summary": _strip_html(entry.get("summary", ""))}
+        {
+            "title": entry.title,
+            "summary": _strip_html(entry.get("summary", "")),
+            "url": entry.get("link", ""),
+        }
         for entry in feed.entries
     ]
