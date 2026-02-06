@@ -56,46 +56,16 @@ _If this breaks, only this layer is fixed._
 
 ---
 
-## Phase 3 - Persist state (major milestone)
+## Phase 3 - First Claude integration (discovery only)
 
-### Step 3.1: Add memory store
-
-- [ ] Create memory.json with empty structure:
-
-```json
-  {
-    "entities": {}
-  }
-```
-
-### Step 3.2: Load and save memory
-
-- [ ] Load memory at agent start
-- [ ] Write memory back at end (even if unchanged)
-
-### Step 3.3: Commit memory updates automatically
-
-- [ ] Agent commits memory.json if it changes
-
-**Checkpoint**
-
-- [ ] Memory survives between runs
-- [ ] Repo history shows state evolving over time
-
-_At this point, VC Scout is officially an agent._
-
----
-
-## Phase 4 - First Claude integration (discovery only)
-
-### Step 4.1: Add discovery module
+### Step 3.1: Add discovery module
 
 - [ ] Input: article text
 - [ ] Output: structured JSON
 - [ ] No ranking or opinions
 - [ ] Claude used only for entity extraction
 
-### Step 4.2: Log extracted entities
+### Step 3.2: Log extracted entities
 
 - [ ] Print extracted entities to logs
 - [ ] Do not store them yet
@@ -110,6 +80,36 @@ _If Claude breaks, the rest of the agent still runs._
 
 ---
 
+## Phase 4 - Persist state (major milestone)
+
+### Step 4.1: Add memory store
+
+- [ ] Create memory.json with empty structure:
+
+```json
+  {
+    "entities": {}
+  }
+```
+
+### Step 4.2: Load and save memory
+
+- [ ] Load memory at agent start
+- [ ] Write memory back at end (even if unchanged)
+
+### Step 4.3: Commit memory updates automatically
+
+- [ ] Agent commits memory.json if it changes
+
+**Checkpoint**
+
+- [ ] Memory survives between runs
+- [ ] Repo history shows state evolving over time
+
+_At this point, VC Scout is officially an agent._
+
+---
+
 ## Phase 5 - Teach the agent to remember
 
 ### Step 5.1: Store discovered entities
@@ -118,7 +118,7 @@ _If Claude breaks, the rest of the agent still runs._
 - [ ] Increment mention counts
 - [ ] Track first_seen and last_seen
 
-### Step 5.2: Track “new this run”
+### Step 5.2: Track "new this run"
 
 - [ ] Flag newly discovered entities per run
 
