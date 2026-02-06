@@ -9,8 +9,8 @@ Tracked vulnerabilities and threat surfaces to revisit as the project evolves.
 RSS feed content (titles, summaries) comes from external sources and is passed into Claude prompts via `discover.py`.
 
 **Mitigated:**
-- [x] Raw HTML in summaries — `fetch.py` now strips HTML to plain text before returning articles
+- [x] Raw HTML in summaries — `fetch.py` strips HTML to plain text before returning articles
+- [x] Output schema validation — `run.py` validates entity shape and type before use; malformed Claude responses are skipped and logged
 
 **Open:**
-- [ ] Prompt injection — malicious titles or summaries could attempt to manipulate Claude's entity extraction. Current blast radius is log output only (no data persisted yet). Revisit before Phase 5.
 - [ ] Content injection — when entities are written to markdown (Phase 6), untrusted content could include unexpected formatting or links. Revisit before Phase 6.
