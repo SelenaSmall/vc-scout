@@ -1,2 +1,7 @@
+from fetch import fetch_titles
+
 if __name__ == "__main__":
-    print("VC Scout agent ran successfully")
+    titles = fetch_titles()
+    print(f"Fetched {len(titles)} titles:")
+    for title in titles:
+        print(f"  - {title}")

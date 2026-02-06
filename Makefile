@@ -5,4 +5,4 @@ run:
 	python agent/run.py
 
 fetch:
-	python -c "from agent.fetch import fetch_titles; print(fetch_titles())"
+	cd agent && python -c "from fetch import fetch_titles; print(fetch_titles())"
