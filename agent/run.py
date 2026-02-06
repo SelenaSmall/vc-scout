@@ -1,4 +1,5 @@
 import json
+from datetime import date
 from pathlib import Path
 from fetch import fetch_articles
 from discover import extract_entities
@@ -26,6 +27,24 @@ def is_valid_entity(entity):
     )
 
 
+def store_entity(memory, entity, article):
+    name = entity["name"]
+    today = date.today().isoformat()
+    sighting = {
+        "date": today,
+        "source": "startupdaily.net",
+        "article": article["title"],
+        "url": article["url"],
+    }
+
+    memory["entities"][name] = {
+        "type": entity["type"],
+        "first_seen": today,
+        "last_seen": today,
+        "sightings": [sighting],
+    }
+
+
 if __name__ == "__main__":
     memory = load_memory()
     print(f"Memory loaded: {len(memory['entities'])} entities")
@@ -39,6 +58,7 @@ if __name__ == "__main__":
         if entities:
             for entity in entities:
                 if is_valid_entity(entity):
+                    store_entity(memory, entity, article)
                     print(f"    -> {entity['name']} ({entity['type']})")
                 else:
                     print(f"    [skipped] Invalid entity: {str(entity)[:80]}")
@@ -46,4 +66,4 @@ if __name__ == "__main__":
             print("    -> No VC entities found")
 
     save_memory(memory)
-    print("Memory saved")
+    print(f"Memory saved: {len(memory['entities'])} entities")
