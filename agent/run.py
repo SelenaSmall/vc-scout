@@ -1,7 +1,7 @@
-from fetch import fetch_titles
+from fetch import fetch_articles
 
 if __name__ == "__main__":
-    titles = fetch_titles()
-    print(f"Fetched {len(titles)} titles:")
-    for title in titles:
-        print(f"  - {title}")
+    articles = fetch_articles()
+    print(f"Fetched {len(articles)} articles:")
+    for article in articles:
+        print(f"  - {article['title']}")
