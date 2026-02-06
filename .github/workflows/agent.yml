@@ -15,4 +15,6 @@ jobs:
         with:
           python-version-file: ".tool-versions"
 
-      - run: python agent/run.py
+      - run: make setup
+
+      - run: make run

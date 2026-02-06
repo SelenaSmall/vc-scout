@@ -68,6 +68,12 @@ This ensures the agent remains understandable, trustworthy, and easy to extend.
 
 ---
 
+## Getting started
+
+[set up instructions](docs/getting-started.md)
+
+---
+
 ## Status
 
 🚧 VC Scout is in active development.  
