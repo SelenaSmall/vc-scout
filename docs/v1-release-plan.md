@@ -84,7 +84,7 @@ _If Claude breaks, the rest of the agent still runs._
 
 ### Step 4.1: Add memory store
 
-- [ ] Create memory.json with empty structure:
+- [x] Create memory.json with empty structure:
 
 ```json
   {
@@ -94,17 +94,17 @@ _If Claude breaks, the rest of the agent still runs._
 
 ### Step 4.2: Load and save memory
 
-- [ ] Load memory at agent start
-- [ ] Write memory back at end (even if unchanged)
+- [x] Load memory at agent start
+- [x] Write memory back at end (even if unchanged)
 
 ### Step 4.3: Commit memory updates automatically
 
-- [ ] Agent commits memory.json if it changes
+- [x] Agent commits memory.json if it changes
 
 **Checkpoint**
 
-- [ ] Memory survives between runs
-- [ ] Repo history shows state evolving over time
+- [x] Memory survives between runs
+- [x] Repo history shows state evolving over time
 
 _At this point, VC Scout is officially an agent._
 
@@ -114,18 +114,18 @@ _At this point, VC Scout is officially an agent._
 
 ### Step 5.1: Store discovered entities
 
-- [ ] Add entities to memory.json
-- [ ] Increment mention counts
-- [ ] Track first_seen and last_seen
+- [x] Add entities to memory.json
+- [x] Track sightings with date, source, article title, and URL
+- [x] Track first_seen and last_seen
 
 ### Step 5.2: Track "new this run"
 
-- [ ] Flag newly discovered entities per run
+- [x] Derived from first_seen date — no separate flag needed
 
 **Checkpoint**
 
-- [ ] memory.json evolves meaningfully
-- [ ] You can explain why every entity exists
+- [x] memory.json evolves meaningfully
+- [x] You can explain why every entity exists
 
 _Discovery is now persistent._
 
