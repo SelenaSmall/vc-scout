@@ -135,8 +135,8 @@ _Discovery is now persistent._
 
 ### Step 6.1: Create weekly brief
 
-- [ ] Generate weekly_brief.md
-- [ ] Include sections:
+- [x] Generate weekly_brief.md
+- [x] Include sections:
 
     - New this week (entities where first_seen is this run)
     - Previously seen (entities seen again this run, with sighting count)
@@ -144,12 +144,12 @@ _Discovery is now persistent._
 
 ### Step 6.2: Commit output automatically
 
-- [ ] Agent commits weekly_brief.md
+- [x] Agent commits weekly_brief.md
 
 **Checkpoint**
 
-- [ ] Someone can read the brief and learn something
-- [ ] Output is stable week-to-week
+- [x] Someone can read the brief and learn something
+- [x] Output is stable week-to-week
 
 _This is the first public-facing artefact._
 
