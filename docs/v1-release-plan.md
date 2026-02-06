@@ -138,8 +138,8 @@ _Discovery is now persistent._
 - [ ] Generate weekly_brief.md
 - [ ] Include sections:
 
-    - New entities
-    - Increased activity
+    - New this week (entities where first_seen is this run)
+    - Previously seen (entities seen again this run, with sighting count)
     - No ranking yet
 
 ### Step 6.2: Commit output automatically
