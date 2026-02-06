@@ -6,9 +6,11 @@ Tracked vulnerabilities and threat surfaces to revisit as the project evolves.
 
 ## Untrusted feed content
 
-RSS feed content (titles, descriptions, etc.) comes from external sources and should be treated as untrusted input. Currently we only extract titles as plain strings, limiting blast radius. However, as later phases pass feed content into Claude prompts (Phase 4) or write it into markdown output (Phase 6), this becomes a concern:
+RSS feed content (titles, summaries) comes from external sources and is passed into Claude prompts via `discover.py`.
 
-- **Prompt injection**: Malicious titles could attempt to manipulate Claude's behaviour during entity extraction.
-- **Content injection**: Titles written directly into markdown could include unexpected formatting or links.
+**Mitigated:**
+- [x] Raw HTML in summaries — `fetch.py` now strips HTML to plain text before returning articles
 
-**When to address**: Before Phase 4 (first Claude integration).
+**Open:**
+- [ ] Prompt injection — malicious titles or summaries could attempt to manipulate Claude's entity extraction. Current blast radius is log output only (no data persisted yet). Revisit before Phase 5.
+- [ ] Content injection — when entities are written to markdown (Phase 6), untrusted content could include unexpected formatting or links. Revisit before Phase 6.
