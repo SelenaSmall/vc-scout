@@ -37,12 +37,16 @@ def store_entity(memory, entity, article):
         "url": article["url"],
     }
 
-    memory["entities"][name] = {
-        "type": entity["type"],
-        "first_seen": today,
-        "last_seen": today,
-        "sightings": [sighting],
-    }
+    if name in memory["entities"]:
+        memory["entities"][name]["last_seen"] = today
+        memory["entities"][name]["sightings"].append(sighting)
+    else:
+        memory["entities"][name] = {
+            "type": entity["type"],
+            "first_seen": today,
+            "last_seen": today,
+            "sightings": [sighting],
+        }
 
 
 if __name__ == "__main__":
