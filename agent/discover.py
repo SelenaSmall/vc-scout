@@ -1,8 +1,6 @@
 import json
 import anthropic
 
-client = anthropic.Anthropic()
-
 SYSTEM_PROMPT = """You extract venture capital entities from Australian startup news.
 
 Given an article title and summary, return a JSON array of entities found.
@@ -16,6 +14,7 @@ Return only valid JSON, no other text."""
 
 
 def extract_entities(article):
+    client = anthropic.Anthropic()
     try:
         response = client.messages.create(
             model="claude-sonnet-4-5-20250929",
