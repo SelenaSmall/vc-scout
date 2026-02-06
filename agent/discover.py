@@ -28,7 +28,7 @@ def extract_entities(article):
                 }
             ],
         )
-    except anthropic.APIError as e:
+    except (anthropic.APIError, anthropic.APIConnectionError) as e:
         print(f"    [error] API call failed: {e}")
         return None
 
