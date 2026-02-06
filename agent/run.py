@@ -3,6 +3,7 @@ from datetime import date
 from pathlib import Path
 from fetch import fetch_articles
 from discover import extract_entities
+from brief import write_brief
 
 MEMORY_PATH = Path(__file__).parent / "memory.json"
 VALID_ENTITY_TYPES = {"vc_firm", "investor"}
@@ -71,3 +72,6 @@ if __name__ == "__main__":
 
     save_memory(memory)
     print(f"Memory saved: {len(memory['entities'])} entities")
+
+    brief_path = write_brief(memory)
+    print(f"Weekly brief written to {brief_path}")
