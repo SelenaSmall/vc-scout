@@ -1,6 +1,8 @@
 # Getting started
 
-Prerequisites: [asdf](https://asdf-vm.com/) with the Python plugin.
+Prerequisites:
+- [asdf](https://asdf-vm.com/) with the Python plugin
+- An [Anthropic API key](https://console.anthropic.com/settings/keys) exported in your shell profile
 
 ## 1. Clone repo
 
@@ -14,13 +16,23 @@ Prerequisites: [asdf](https://asdf-vm.com/) with the Python plugin.
   asdf install
 ```
 
-## 3. Install dependencies
+## 3. Set up API key
+
+Add to your shell profile (`~/.zshrc` or `~/.bashrc`):
+
+```bash
+  export ANTHROPIC_API_KEY=sk-ant-...
+```
+
+Then restart your terminal or `source` the profile.
+
+## 4. Install dependencies
 
 ```bash
   make setup
 ```
 
-## 4. Run the agent
+## 5. Run the agent
 
 ```bash
   make run 
