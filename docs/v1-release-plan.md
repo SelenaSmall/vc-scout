@@ -8,8 +8,8 @@ Each phase is designed to be independently releasable and verifiable, ensuring t
 ## Phase 1 - “Hello, agent” (no Claude yet)
 
 ### Step 1.1: Add a single Python entrypoint
-- [ ] Create `agent/run.py`
-- [ ] Hardcode output:
+- [x] Create `agent/run.py`
+- [x] Hardcode output:
 
 ```python
 if __name__ == "__main__":
@@ -18,14 +18,14 @@ if __name__ == "__main__":
 
 ### Step 1.2: Add GitHub Actions
 
-- [ ] Add scheduled GitHub Actions workflow (weekly)
-- [ ] No dependencies
-- [ ] Workflow runs python agent/run.py
+- [x] Add scheduled GitHub Actions workflow (weekly)
+- [x] No dependencies
+- [x] Workflow runs python agent/run.py
 
 **Checkpoint**
 
-- [ ] GitHub Action runs on schedule and logs output
-- [ ] Runtime and scheduler are trusted
+- [x] GitHub Action runs on schedule and logs output
+- [x] Runtime and scheduler are trusted
 
 _No logic yet. This phase is about infrastructure confidence._
 
@@ -35,22 +35,22 @@ _No logic yet. This phase is about infrastructure confidence._
 
 ### Step 2.1: Add a fetcher
 
-- [ ] Pull one RSS feed
-- [ ] Return article titles only
+- [x] Pull one RSS feed
+- [x] Return article titles only
 
 _No parsing or intelligence_
 
 
 ### Step 2.2: Wire fetcher into run.py
 
-- [ ] Call fetcher from run.py
-- [ ] Print fetched titles to logs
+- [x] Call fetcher from run.py
+- [x] Print fetched titles to logs
 
 **Checkpoint**
 
-- [ ] Agent runs end-to-end
-- [ ] Network access works
-- [ ] Output is deterministic
+- [x] Agent runs end-to-end
+- [x] Network access works
+- [x] Output is deterministic
 
 _If this breaks, only this layer is fixed._
 
@@ -60,21 +60,21 @@ _If this breaks, only this layer is fixed._
 
 ### Step 3.1: Add discovery module
 
-- [ ] Input: article text
-- [ ] Output: structured JSON
-- [ ] No ranking or opinions
-- [ ] Claude used only for entity extraction
+- [x] Input: article text
+- [x] Output: structured JSON
+- [x] No ranking or opinions
+- [x] Claude used only for entity extraction
 
 ### Step 3.2: Log extracted entities
 
-- [ ] Print extracted entities to logs
-- [ ] Do not store them yet
+- [x] Print extracted entities to logs
+- [x] Do not store them yet
 
 **Checkpoint**
 
-- [ ] Claude is callable from the agent
-- [ ] Output is structured and predictable
-- [ ] Failures are visible, not silent
+- [x] Claude is callable from the agent
+- [x] Output is structured and predictable
+- [x] Failures are visible, not silent
 
 _If Claude breaks, the rest of the agent still runs._
 
