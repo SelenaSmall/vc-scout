@@ -1,4 +1,5 @@
 import json
+import re
 import anthropic
 
 SYSTEM_PROMPT = """You extract venture capital entities from Australian startup news.
@@ -34,9 +35,12 @@ def extract_entities(article):
         return None
 
     text = response.content[0].text.strip()
-    # Strip markdown code fences if present
-    if text.startswith("```"):
-        text = text.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+    # Claude sometimes produces multiple fenced code blocks when it self-corrects
+    # mid-response (e.g. first block has entities, then "Wait, let me reconsider",
+    # then a corrected block). Take the last block as the final answer.
+    fenced_blocks = re.findall(r"```(?:json)?\s*\n(.*?)```", text, re.DOTALL)
+    if fenced_blocks:
+        text = fenced_blocks[-1].strip()
     try:
         return json.loads(text)
     except json.JSONDecodeError:
