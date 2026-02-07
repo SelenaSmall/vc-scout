@@ -23,9 +23,11 @@ def _resolve_paths():
 
 def load_memory(path):
     if not path.exists():
-        return {"entities": {}}
-    with open(path) as f:
-        return json.load(f)
+        return {"entities": {}, "seen_urls": []}
+    memory = json.load(open(path))
+    if "seen_urls" not in memory:
+        memory["seen_urls"] = []
+    return memory
 
 
 def save_memory(memory, path):
@@ -72,8 +74,10 @@ if __name__ == "__main__":
     memory = load_memory(memory_path)
     print(f"Memory loaded: {len(memory['entities'])} entities")
 
-    articles = fetch_articles()
-    print(f"Fetched {len(articles)} articles:")
+    all_articles = fetch_articles()
+    seen = set(memory["seen_urls"])
+    articles = [a for a in all_articles if a["url"] not in seen]
+    print(f"Fetched {len(all_articles)} articles, {len(articles)} new")
 
     for article in articles:
         print(f"\n  - {article['title']}")
@@ -87,6 +91,7 @@ if __name__ == "__main__":
                     print(f"    [skipped] Invalid entity: {str(entity)[:80]}")
         else:
             print("    -> No VC entities found")
+        memory["seen_urls"].append(article["url"])
 
     save_memory(memory, memory_path)
     print(f"Memory saved: {len(memory['entities'])} entities")
