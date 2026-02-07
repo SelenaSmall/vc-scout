@@ -25,7 +25,8 @@ def _resolve_paths():
 def load_entities(path):
     if not path.exists():
         return {}
-    return json.load(open(path))
+    with open(path) as f:
+        return json.load(f)
 
 
 def save_entities(entities, path):
@@ -38,7 +39,8 @@ def save_entities(entities, path):
 def load_seen_urls(path):
     if not path.exists():
         return {}
-    return json.load(open(path))
+    with open(path) as f:
+        return json.load(f)
 
 
 def save_seen_urls(seen_urls, path):
