@@ -157,15 +157,18 @@ _This is the first public-facing artefact._
 
 ## Phase 7 - Add opinion (ranking)
 
-### Step 7.1: Add test mode for local development
+### Step 7.1: Add test mode and reset memory
 
-- [ ] `VC_SCOUT_MODE` environment variable — defaults to `test`, CI sets `production`
-- [ ] Test mode writes to gitignored paths (`agent/test_memory.json`, `output/test_weekly_brief.md`)
-- [ ] Production mode writes to real paths (committed by CI)
+- [x] `VC_SCOUT_MODE` environment variable — defaults to `test`, CI sets `production`
+- [x] Test mode writes to gitignored `test/` directory (mirrors `data/` and `output/` structure)
+- [x] Production data moved to `data/memory.json` (separate from code in `agent/`)
+- [x] Reset memory.json to empty state — existing data was test pollution
 
-### Step 7.2: Reset memory
+### Step 7.2: Skip already-processed articles
 
-- [ ] Clear memory.json to empty state — existing data is test pollution
+- [ ] Track processed article URLs in memory (`seen_urls`)
+- [ ] Filter out already-seen articles in run.py after fetch, before discover
+- [ ] Prevents duplicate sightings and saves Claude API calls
 
 ### Step 7.3: Add `role` to entity extraction
 
@@ -202,6 +205,7 @@ _This is the first public-facing artefact._
 - [ ] You can defend the logic
 - [ ] Local runs are safe (test mode by default)
 - [ ] Both RSS sources return data
+- [ ] No duplicate sightings from repeated runs
 
 ---
 
