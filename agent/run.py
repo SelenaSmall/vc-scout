@@ -11,13 +11,13 @@ VALID_ENTITY_TYPES = {"vc_firm", "investor"}
 
 def _resolve_paths():
     mode = os.environ.get("VC_SCOUT_MODE", "test")
-    base = Path(__file__).parent
+    root = Path(__file__).parent.parent
     if mode == "production":
-        memory_path = base / "memory.json"
-        output_path = base.parent / "output" / "weekly_brief.md"
+        memory_path = root / "data" / "memory.json"
+        output_path = root / "output" / "weekly_brief.md"
     else:
-        memory_path = base / "test_memory.json"
-        output_path = base.parent / "output" / "test_weekly_brief.md"
+        memory_path = root / "test" / "data" / "memory.json"
+        output_path = root / "test" / "output" / "weekly_brief.md"
     return mode, memory_path, output_path
 
 
@@ -29,6 +29,7 @@ def load_memory(path):
 
 
 def save_memory(memory, path):
+    path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w") as f:
         json.dump(memory, f, indent=2)
         f.write("\n")
