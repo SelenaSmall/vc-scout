@@ -161,40 +161,50 @@ _This is the first public-facing artefact._
 
 - [x] `VC_SCOUT_MODE` environment variable — defaults to `test`, CI sets `production`
 - [x] Test mode writes to gitignored `test/` directory (mirrors `data/` and `output/` structure)
-- [x] Production data moved to `data/memory.json` (separate from code in `agent/`)
-- [x] Reset memory.json to empty state — existing data was test pollution
+- [x] Production data separated: `data/entities.json` and `data/seen_urls.json`
+- [x] Reset data to empty state — existing data was test pollution
 
 ### Step 7.2: Skip already-processed articles
 
-- [ ] Track processed article URLs in memory (`seen_urls`)
-- [ ] Filter out already-seen articles in run.py after fetch, before discover
-- [ ] Prevents duplicate sightings and saves Claude API calls
+- [x] Track processed article URLs in `data/seen_urls.json` (URL → date mapping)
+- [x] Filter out already-seen articles in run.py after fetch, before discover
+- [x] Prevents duplicate sightings and saves Claude API calls
 
 ### Step 7.3: Add `role` to entity extraction
 
-- [ ] Update Claude prompt to extract role: `lead`, `participant`, or `unknown`
-- [ ] Validate role in run.py before storage
-- [ ] Store role per-sighting (not per-entity — role can vary across deals)
+- [x] Update Claude prompt to extract role: `lead`, `participant`, or `unknown`
+- [x] Validate role in run.py before storage
+- [x] Store role per-sighting (not per-entity — role can vary across deals)
 
 ### Step 7.4: Add a second RSS source
 
-- [ ] Add SmartCompany StartupSmart feed (`smartcompany.com.au/startupsmart/feed/`)
-- [ ] Article dicts carry a `source` field (remove hardcoded source in `store_entity`)
-- [ ] `fetch_all_articles()` iterates all configured feeds
+- [x] Add SmartCompany StartupSmart feed (`smartcompany.com.au/startupsmart/feed/`)
+- [x] Article dicts carry a `source` field (remove hardcoded source in `store_entity`)
+- [x] `fetch_all_articles()` iterates all configured feeds
 
 ### Step 7.5: Encode ranking heuristics
 
-- [ ] New `rank.py` module — pure function, no I/O
-- [ ] Sighting count (+1 per sighting)
-- [ ] Lead bonus (+2 per sighting where role is lead)
-- [ ] Multi-source presence (+3 if seen across 2+ sources)
+- [x] New `rank.py` module — pure function, no I/O
+- [x] Sighting count (+1 per sighting)
+- [x] Lead bonus (+2 per sighting where role is lead)
+- [x] Multi-source presence (+3 if seen across 2+ sources)
 
 ### Step 7.6: Integrate ranking into weekly brief
 
-- [ ] Order entities by rank score in both sections
-- [ ] Plain English explanations for ordering (e.g. "3 sightings; led 1 round; seen across 2 sources")
+- [x] Order entities by rank score in both sections
+- [x] Plain English explanations for ordering (e.g. "3 sightings; led 1 round; seen across 2 sources")
 
-### Step 7.7: Update documentation
+### Step 7.7: Only mark articles as seen after successful extraction
+
+- [ ] Move seen_urls recording inside the success path — skip on API failure or parse error
+- [ ] Articles that fail extraction will be retried on the next run
+
+### Step 7.8: Handle multi-block Claude responses in discover.py
+
+- [ ] Extract last fenced code block from response (Claude sometimes self-corrects mid-response)
+- [ ] Handles single block, multiple blocks, and no fences
+
+### Step 7.9: Update documentation
 
 - [ ] Update getting-started.md with test mode instructions
 - [ ] Add role validation to security considerations
@@ -206,6 +216,7 @@ _This is the first public-facing artefact._
 - [ ] Local runs are safe (test mode by default)
 - [ ] Both RSS sources return data
 - [ ] No duplicate sightings from repeated runs
+- [ ] Temporary API failures don't permanently skip articles
 
 ---
 
