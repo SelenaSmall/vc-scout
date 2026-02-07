@@ -10,5 +10,5 @@ RSS feed content (titles, summaries) comes from external sources and is passed i
 
 **Mitigated:**
 - [x] Raw HTML in summaries — `fetch.py` strips HTML to plain text before returning articles
-- [x] Output schema validation — `run.py` validates entity shape and type before use; malformed Claude responses are skipped and logged
+- [x] Output schema validation — `run.py` validates entity shape, type, and role against allowlists in `schema.py`; malformed Claude responses are skipped and logged
 - [x] Content injection — `brief.py` sanitises entity names by escaping markdown-special characters before writing to output

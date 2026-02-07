@@ -6,14 +6,7 @@ Issues and ideas identified during development that aren't worth solving now but
 
 ## Code quality
 
-### Unclosed file handles in load functions
-`run.py` uses `json.load(open(path))` without `with`. Works in CPython but isn't guaranteed. Switch to `with open(...) as f:` for correctness.
-
-### Duplicate constants between prompt and validation
-Entity types and roles are defined in prose in `discover.py` and as sets in `run.py`. A single source of truth (e.g. constants imported by both) would prevent drift.
-
-### Anthropic client instantiated per article
-`discover.py` creates a new `Anthropic()` client for every article. Instantiate once per run and pass it in to reduce overhead as article volume grows.
+No outstanding items.
 
 ## Data integrity
 
@@ -30,6 +23,3 @@ If the entity or sighting schema changes, old data won't have new fields. Curren
 
 ### JSON files as database
 Works fine for a weekly batch job with small data. If entity count reaches thousands or seen_urls reaches tens of thousands, JSON load/save becomes slow and files become unwieldy in git diffs. Consider SQLite or similar if this becomes a problem.
-
-### Ranking weight tuning
-Scoring weights in `rank.py` are inline numbers (1/sighting, +2/lead, +3/multi-source). Extract to named constants at the top of the file to make tuning easier during Phase 8 observation.

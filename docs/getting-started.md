@@ -35,5 +35,15 @@ Then restart your terminal or `source` the profile.
 ## 5. Run the agent
 
 ```bash
-  make run 
+  make run
 ```
+
+By default, `make run` runs in **test mode** — output goes to gitignored files under `test/`, keeping production data clean.
+
+To run against production data:
+
+```bash
+  VC_SCOUT_MODE=production make run
+```
+
+GitHub Actions sets `VC_SCOUT_MODE=production` automatically.

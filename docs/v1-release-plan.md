@@ -196,27 +196,28 @@ _This is the first public-facing artefact._
 
 ### Step 7.7: Only mark articles as seen after successful extraction
 
-- [ ] Move seen_urls recording inside the success path — skip on API failure or parse error
-- [ ] Articles that fail extraction will be retried on the next run
+- [x] Move seen_urls recording inside the success path — skip on API failure or parse error
+- [x] Articles that fail extraction will be retried on the next run
 
 ### Step 7.8: Handle multi-block Claude responses in discover.py
 
-- [ ] Extract last fenced code block from response (Claude sometimes self-corrects mid-response)
-- [ ] Handles single block, multiple blocks, and no fences
+- [x] Extract last fenced code block from response (Claude sometimes self-corrects mid-response)
+- [x] Handles single block, multiple blocks, and no fences
 
 ### Step 7.9: Update documentation
 
-- [ ] Update getting-started.md with test mode instructions
-- [ ] Add role validation to security considerations
+- [x] Update getting-started.md with test mode instructions
+- [x] Add role validation to security considerations
+- [x] Update CLAUDE.md architecture to reflect new files and structure
 
 **Checkpoint**
 
-- [ ] You agree with the ordering
-- [ ] You can defend the logic
-- [ ] Local runs are safe (test mode by default)
-- [ ] Both RSS sources return data
-- [ ] No duplicate sightings from repeated runs
-- [ ] Temporary API failures don't permanently skip articles
+- [x] You agree with the ordering
+- [x] You can defend the logic
+- [x] Local runs are safe (test mode by default)
+- [x] Both RSS sources return data
+- [x] No duplicate sightings from repeated runs
+- [x] Temporary API failures don't permanently skip articles
 
 ---
 
