@@ -7,6 +7,7 @@ from discover import extract_entities
 from brief import write_brief
 
 VALID_ENTITY_TYPES = {"vc_firm", "investor"}
+VALID_ROLES = {"lead", "participant", "unknown"}
 
 
 def _resolve_paths():
@@ -52,6 +53,7 @@ def is_valid_entity(entity):
         isinstance(entity, dict)
         and isinstance(entity.get("name"), str)
         and entity.get("type") in VALID_ENTITY_TYPES
+        and entity.get("role") in VALID_ROLES
     )
 
 
@@ -63,6 +65,7 @@ def store_entity(entities, entity, article):
         "source": "startupdaily.net",
         "article": article["title"],
         "url": article["url"],
+        "role": entity["role"],
     }
 
     if name in entities:
@@ -96,7 +99,7 @@ if __name__ == "__main__":
             for entity in extracted:
                 if is_valid_entity(entity):
                     store_entity(entities, entity, article)
-                    print(f"    -> {entity['name']} ({entity['type']})")
+                    print(f"    -> {entity['name']} ({entity['type']}, {entity['role']})")
                 else:
                     print(f"    [skipped] Invalid entity: {str(entity)[:80]}")
         else:

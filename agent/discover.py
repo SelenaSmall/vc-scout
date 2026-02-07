@@ -7,6 +7,7 @@ Given an article title and summary, return a JSON array of entities found.
 Each entity should have:
 - "name": the entity name (VC firm or individual investor)
 - "type": either "vc_firm" or "investor"
+- "role": the entity's role in the deal — "lead" if they led the round, "participant" if they participated, or "unknown" if unclear
 
 Only include entities that are clearly venture capital firms or investors.
 If no VC entities are found, return an empty array.
