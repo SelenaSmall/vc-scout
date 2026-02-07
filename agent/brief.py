@@ -1,5 +1,6 @@
 import re
 from datetime import date
+from rank import rank_entities
 
 
 def sanitise_markdown(text):
@@ -24,9 +25,10 @@ def generate_brief(entities):
     lines.append("## New this week")
     lines.append("")
     if new_this_week:
-        for name, data in new_this_week.items():
+        for name, score, explanations in rank_entities(new_this_week):
             safe_name = sanitise_markdown(name)
-            lines.append(f"- **{safe_name}** ({data['type']})")
+            entity_type = new_this_week[name]["type"]
+            lines.append(f"- **{safe_name}** ({entity_type}) — {'; '.join(explanations)}")
     else:
         lines.append("No new entities this week.")
     lines.append("")
@@ -34,10 +36,10 @@ def generate_brief(entities):
     lines.append("## Previously seen")
     lines.append("")
     if seen_again:
-        for name, data in seen_again.items():
+        for name, score, explanations in rank_entities(seen_again):
             safe_name = sanitise_markdown(name)
-            count = len(data["sightings"])
-            lines.append(f"- **{safe_name}** ({data['type']}) — {count} sightings")
+            entity_type = seen_again[name]["type"]
+            lines.append(f"- **{safe_name}** ({entity_type}) — {'; '.join(explanations)}")
     else:
         lines.append("No returning entities this week.")
     lines.append("")
