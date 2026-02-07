@@ -25,13 +25,13 @@ def _resolve_paths():
 def load_entities(path):
     if not path.exists():
         return {}
-    return json.load(open(path)).get("entities", {})
+    return json.load(open(path))
 
 
 def save_entities(entities, path):
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w") as f:
-        json.dump({"entities": entities}, f, indent=2)
+        json.dump(entities, f, indent=2)
         f.write("\n")
 
 
@@ -110,5 +110,5 @@ if __name__ == "__main__":
     save_seen_urls(seen_urls, data_dir / "seen_urls.json")
     print(f"Saved {len(entities)} entities, {len(seen_urls)} seen URLs")
 
-    brief_path = write_brief({"entities": entities}, output_path)
+    brief_path = write_brief(entities, output_path)
     print(f"Weekly brief written to {brief_path}")

@@ -7,9 +7,8 @@ def sanitise_markdown(text):
     return re.sub(r"([\\`*_\{\}\[\]()#+\-.!|])", r"\\\1", text)
 
 
-def generate_brief(memory):
+def generate_brief(entities):
     today = date.today().isoformat()
-    entities = memory["entities"]
 
     new_this_week = {
         name: data for name, data in entities.items()
@@ -46,8 +45,8 @@ def generate_brief(memory):
     return "\n".join(lines)
 
 
-def write_brief(memory, output_path):
-    content = generate_brief(memory)
+def write_brief(entities, output_path):
+    content = generate_brief(entities)
     output_path.parent.mkdir(exist_ok=True)
     with open(output_path, "w") as f:
         f.write(content)
