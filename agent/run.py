@@ -2,6 +2,7 @@ import json
 import os
 from datetime import date
 from pathlib import Path
+import anthropic
 from fetch import fetch_all_articles
 from discover import extract_entities
 from brief import write_brief
@@ -89,13 +90,14 @@ if __name__ == "__main__":
     seen_urls = load_seen_urls(data_dir / "seen_urls.json")
     print(f"Loaded {len(entities)} entities, {len(seen_urls)} seen URLs")
 
+    client = anthropic.Anthropic()
     all_articles = fetch_all_articles()
     articles = [a for a in all_articles if a["url"] not in seen_urls]
     print(f"Fetched {len(all_articles)} articles, {len(articles)} new")
 
     for article in articles:
         print(f"\n  - {article['title']}")
-        extracted = extract_entities(article)
+        extracted = extract_entities(article, client)
         if extracted is None:
             print("    -> Extraction failed, will retry next run")
             continue

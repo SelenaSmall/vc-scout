@@ -19,8 +19,7 @@ If no VC entities are found, return an empty array.
 Return only valid JSON, no other text."""
 
 
-def extract_entities(article):
-    client = anthropic.Anthropic()
+def extract_entities(article, client):
     try:
         response = client.messages.create(
             model="claude-sonnet-4-5-20250929",
