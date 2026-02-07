@@ -1,21 +1,35 @@
 import json
+import os
 from datetime import date
 from pathlib import Path
 from fetch import fetch_articles
 from discover import extract_entities
 from brief import write_brief
 
-MEMORY_PATH = Path(__file__).parent / "memory.json"
 VALID_ENTITY_TYPES = {"vc_firm", "investor"}
 
 
-def load_memory():
-    with open(MEMORY_PATH) as f:
+def _resolve_paths():
+    mode = os.environ.get("VC_SCOUT_MODE", "test")
+    base = Path(__file__).parent
+    if mode == "production":
+        memory_path = base / "memory.json"
+        output_path = base.parent / "output" / "weekly_brief.md"
+    else:
+        memory_path = base / "test_memory.json"
+        output_path = base.parent / "output" / "test_weekly_brief.md"
+    return mode, memory_path, output_path
+
+
+def load_memory(path):
+    if not path.exists():
+        return {"entities": {}}
+    with open(path) as f:
         return json.load(f)
 
 
-def save_memory(memory):
-    with open(MEMORY_PATH, "w") as f:
+def save_memory(memory, path):
+    with open(path, "w") as f:
         json.dump(memory, f, indent=2)
         f.write("\n")
 
@@ -51,7 +65,10 @@ def store_entity(memory, entity, article):
 
 
 if __name__ == "__main__":
-    memory = load_memory()
+    mode, memory_path, output_path = _resolve_paths()
+    print(f"Running in {mode} mode")
+
+    memory = load_memory(memory_path)
     print(f"Memory loaded: {len(memory['entities'])} entities")
 
     articles = fetch_articles()
@@ -70,8 +87,8 @@ if __name__ == "__main__":
         else:
             print("    -> No VC entities found")
 
-    save_memory(memory)
+    save_memory(memory, memory_path)
     print(f"Memory saved: {len(memory['entities'])} entities")
 
-    brief_path = write_brief(memory)
+    brief_path = write_brief(memory, output_path)
     print(f"Weekly brief written to {brief_path}")

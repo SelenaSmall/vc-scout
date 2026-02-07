@@ -1,3 +1,5 @@
 CLAUDE.md
 .idea
 __pycache__/
+agent/test_memory.json
+output/test_weekly_brief.md

@@ -1,8 +1,5 @@
 import re
 from datetime import date
-from pathlib import Path
-
-OUTPUT_PATH = Path(__file__).parent.parent / "output" / "weekly_brief.md"
 
 
 def sanitise_markdown(text):
@@ -49,9 +46,9 @@ def generate_brief(memory):
     return "\n".join(lines)
 
 
-def write_brief(memory):
+def write_brief(memory, output_path):
     content = generate_brief(memory)
-    OUTPUT_PATH.parent.mkdir(exist_ok=True)
-    with open(OUTPUT_PATH, "w") as f:
+    output_path.parent.mkdir(exist_ok=True)
+    with open(output_path, "w") as f:
         f.write(content)
-    return OUTPUT_PATH
+    return output_path
