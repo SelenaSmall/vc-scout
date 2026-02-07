@@ -1,1 +1,58 @@
-{}
+{
+  "EVP": {
+    "type": "vc_firm",
+    "first_seen": "2026-02-07",
+    "last_seen": "2026-02-07",
+    "sightings": [
+      {
+        "date": "2026-02-07",
+        "source": "startupdaily.net",
+        "article": "WA mining software startup CorePlan strikes $5 million",
+        "url": "https://www.startupdaily.net/topic/funding/wa-drilling-software-startup-coreplan-strikes-5-million/",
+        "role": "lead"
+      }
+    ]
+  },
+  "Brian Collins": {
+    "type": "investor",
+    "first_seen": "2026-02-07",
+    "last_seen": "2026-02-07",
+    "sightings": [
+      {
+        "date": "2026-02-07",
+        "source": "startupdaily.net",
+        "article": "Apple of his isle: Fintech investor Brian Collins named Enterprize Tasmania CEO",
+        "url": "https://www.startupdaily.net/topic/people/apple-of-his-isle-fintech-investor-brian-collins-named-enterprize-tasmania-ceo/",
+        "role": "unknown"
+      }
+    ]
+  },
+  "NRF": {
+    "type": "vc_firm",
+    "first_seen": "2026-02-07",
+    "last_seen": "2026-02-07",
+    "sightings": [
+      {
+        "date": "2026-02-07",
+        "source": "smartcompany.com.au",
+        "article": "NRF tips $20 million into Diraq for homegrown quantum computing",
+        "url": "https://www.smartcompany.com.au/startupsmart/nrf-tips-20-million-diraq-homegrown-quantum-computing/",
+        "role": "lead"
+      }
+    ]
+  },
+  "National Reconstruction Fund": {
+    "type": "vc_firm",
+    "first_seen": "2026-02-07",
+    "last_seen": "2026-02-07",
+    "sightings": [
+      {
+        "date": "2026-02-07",
+        "source": "smartcompany.com.au",
+        "article": "NRF bets big on driverless cars as Applied EV raises $57 million",
+        "url": "https://www.smartcompany.com.au/startupsmart/nrf-bets-big-driverless-cars-applied-ev-raises-57-million/",
+        "role": "unknown"
+      }
+    ]
+  }
+}

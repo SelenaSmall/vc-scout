@@ -1,10 +1,11 @@
-# VC Scout Weekly Brief — 2026-02-06
+# VC Scout Weekly Brief — 2026-02-07
 
 ## New this week
 
-- **EVP** (vc_firm)
-- **Brian Collins** (investor)
-- **Startupbootcamp** (vc_firm)
+- **EVP** (vc_firm) — 1 sighting; led 1 round
+- **NRF** (vc_firm) — 1 sighting; led 1 round
+- **Brian Collins** (investor) — 1 sighting
+- **National Reconstruction Fund** (vc_firm) — 1 sighting
 
 ## Previously seen
 
