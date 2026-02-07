@@ -2,7 +2,7 @@ import json
 import os
 from datetime import date
 from pathlib import Path
-from fetch import fetch_articles
+from fetch import fetch_all_articles
 from discover import extract_entities
 from brief import write_brief
 
@@ -62,7 +62,7 @@ def store_entity(entities, entity, article):
     today = date.today().isoformat()
     sighting = {
         "date": today,
-        "source": "startupdaily.net",
+        "source": article["source"],
         "article": article["title"],
         "url": article["url"],
         "role": entity["role"],
@@ -88,7 +88,7 @@ if __name__ == "__main__":
     seen_urls = load_seen_urls(data_dir / "seen_urls.json")
     print(f"Loaded {len(entities)} entities, {len(seen_urls)} seen URLs")
 
-    all_articles = fetch_articles()
+    all_articles = fetch_all_articles()
     articles = [a for a in all_articles if a["url"] not in seen_urls]
     print(f"Fetched {len(all_articles)} articles, {len(articles)} new")
 
