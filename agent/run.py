@@ -37,14 +37,14 @@ def save_entities(entities, path):
 
 def load_seen_urls(path):
     if not path.exists():
-        return set()
-    return set(json.load(open(path)))
+        return {}
+    return json.load(open(path))
 
 
 def save_seen_urls(seen_urls, path):
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w") as f:
-        json.dump(sorted(seen_urls), f, indent=2)
+        json.dump(seen_urls, f, indent=2)
         f.write("\n")
 
 
@@ -104,7 +104,7 @@ if __name__ == "__main__":
                     print(f"    [skipped] Invalid entity: {str(entity)[:80]}")
         else:
             print("    -> No VC entities found")
-        seen_urls.add(article["url"])
+        seen_urls[article["url"]] = date.today().isoformat()
 
     save_entities(entities, data_dir / "entities.json")
     save_seen_urls(seen_urls, data_dir / "seen_urls.json")
