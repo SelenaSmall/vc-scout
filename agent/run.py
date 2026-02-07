@@ -95,6 +95,9 @@ if __name__ == "__main__":
     for article in articles:
         print(f"\n  - {article['title']}")
         extracted = extract_entities(article)
+        if extracted is None:
+            print("    -> Extraction failed, will retry next run")
+            continue
         if extracted:
             for entity in extracted:
                 if is_valid_entity(entity):
