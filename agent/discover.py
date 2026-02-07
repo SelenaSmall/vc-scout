@@ -1,14 +1,18 @@
 import json
 import re
 import anthropic
+from schema import ENTITY_TYPES, ENTITY_ROLES
 
-SYSTEM_PROMPT = """You extract venture capital entities from Australian startup news.
+_types = ", ".join(f'"{t}"' for t in ENTITY_TYPES)
+_roles = ", ".join(f'"{r}"' for r in ENTITY_ROLES)
+
+SYSTEM_PROMPT = f"""You extract venture capital entities from Australian startup news.
 
 Given an article title and summary, return a JSON array of entities found.
 Each entity should have:
 - "name": the entity name (VC firm or individual investor)
-- "type": either "vc_firm" or "investor"
-- "role": the entity's role in the deal — "lead" if they led the round, "participant" if they participated, or "unknown" if unclear
+- "type": one of {_types}
+- "role": the entity's role in the deal — "lead" if they led the round, "participant" if they participated, or "unknown" if unclear. Must be one of {_roles}
 
 Only include entities that are clearly venture capital firms or investors.
 If no VC entities are found, return an empty array.

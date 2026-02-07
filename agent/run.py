@@ -6,8 +6,7 @@ from fetch import fetch_all_articles
 from discover import extract_entities
 from brief import write_brief
 
-VALID_ENTITY_TYPES = {"vc_firm", "investor"}
-VALID_ROLES = {"lead", "participant", "unknown"}
+from schema import ENTITY_TYPES, ENTITY_ROLES
 
 
 def _resolve_paths():
@@ -54,8 +53,8 @@ def is_valid_entity(entity):
     return (
         isinstance(entity, dict)
         and isinstance(entity.get("name"), str)
-        and entity.get("type") in VALID_ENTITY_TYPES
-        and entity.get("role") in VALID_ROLES
+        and entity.get("type") in ENTITY_TYPES
+        and entity.get("role") in ENTITY_ROLES
     )
 
 
