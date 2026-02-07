@@ -157,20 +157,51 @@ _This is the first public-facing artefact._
 
 ## Phase 7 - Add opinion (ranking)
 
-### Step 7.1: Encode simple heuristics
+### Step 7.1: Add test mode for local development
 
-- [ ] Mentions count
-- [ ] Lead vs participant (where available)
-- [ ] Presence across multiple sources
+- [ ] `VC_SCOUT_MODE` environment variable — defaults to `test`, CI sets `production`
+- [ ] Test mode writes to gitignored paths (`agent/test_memory.json`, `output/test_weekly_brief.md`)
+- [ ] Production mode writes to real paths (committed by CI)
 
-### Step 7.2: Explain the ranking
+### Step 7.2: Reset memory
 
-- [ ] Plain English reasons for ordering
+- [ ] Clear memory.json to empty state — existing data is test pollution
+
+### Step 7.3: Add `role` to entity extraction
+
+- [ ] Update Claude prompt to extract role: `lead`, `participant`, or `unknown`
+- [ ] Validate role in run.py before storage
+- [ ] Store role per-sighting (not per-entity — role can vary across deals)
+
+### Step 7.4: Add a second RSS source
+
+- [ ] Add SmartCompany StartupSmart feed (`smartcompany.com.au/startupsmart/feed/`)
+- [ ] Article dicts carry a `source` field (remove hardcoded source in `store_entity`)
+- [ ] `fetch_all_articles()` iterates all configured feeds
+
+### Step 7.5: Encode ranking heuristics
+
+- [ ] New `rank.py` module — pure function, no I/O
+- [ ] Sighting count (+1 per sighting)
+- [ ] Lead bonus (+2 per sighting where role is lead)
+- [ ] Multi-source presence (+3 if seen across 2+ sources)
+
+### Step 7.6: Integrate ranking into weekly brief
+
+- [ ] Order entities by rank score in both sections
+- [ ] Plain English explanations for ordering (e.g. "3 sightings; led 1 round; seen across 2 sources")
+
+### Step 7.7: Update documentation
+
+- [ ] Update getting-started.md with test mode instructions
+- [ ] Add role validation to security considerations
 
 **Checkpoint**
 
 - [ ] You agree with the ordering
 - [ ] You can defend the logic
+- [ ] Local runs are safe (test mode by default)
+- [ ] Both RSS sources return data
 
 ---
 
