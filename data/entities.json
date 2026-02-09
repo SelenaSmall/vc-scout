@@ -54,5 +54,19 @@
         "role": "unknown"
       }
     ]
+  },
+  "Accel": {
+    "type": "vc_firm",
+    "first_seen": "2026-02-09",
+    "last_seen": "2026-02-09",
+    "sightings": [
+      {
+        "date": "2026-02-09",
+        "source": "startupdaily.net",
+        "article": "Atlassian\u2019s first investor leads $8.55 million Seed in workflows documentation startup Fluency",
+        "url": "https://www.startupdaily.net/topic/funding/atlassians-first-investor-leads-8-55-million-seed-in-workflows-documentation-startup-fluency/",
+        "role": "lead"
+      }
+    ]
   }
 }
