@@ -58,7 +58,7 @@
   "Accel": {
     "type": "vc_firm",
     "first_seen": "2026-02-09",
-    "last_seen": "2026-02-09",
+    "last_seen": "2026-02-16",
     "sightings": [
       {
         "date": "2026-02-09",
@@ -66,6 +66,83 @@
         "article": "Atlassian\u2019s first investor leads $8.55 million Seed in workflows documentation startup Fluency",
         "url": "https://www.startupdaily.net/topic/funding/atlassians-first-investor-leads-8-55-million-seed-in-workflows-documentation-startup-fluency/",
         "role": "lead"
+      },
+      {
+        "date": "2026-02-16",
+        "source": "smartcompany.com.au",
+        "article": "Fluency raises $8.55 million to make it easier to document workflows with AI",
+        "url": "https://www.smartcompany.com.au/startupsmart/fluency-raises-8-55-million-to-make-it-easier-to-document-workflows-with-ai/",
+        "role": "lead"
+      }
+    ]
+  },
+  "Techstars Sydney": {
+    "type": "vc_firm",
+    "first_seen": "2026-02-16",
+    "last_seen": "2026-02-16",
+    "sightings": [
+      {
+        "date": "2026-02-16",
+        "source": "startupdaily.net",
+        "article": "Techstars Sydney is the latest victim of the NSW government\u2019s ongoing startup purge",
+        "url": "https://www.startupdaily.net/topic/accelerator/techstars-sydney-is-the-latest-victim-of-the-nsw-governments-ongoing-startup-purge/",
+        "role": "unknown"
+      }
+    ]
+  },
+  "Correlation": {
+    "type": "vc_firm",
+    "first_seen": "2026-02-16",
+    "last_seen": "2026-02-16",
+    "sightings": [
+      {
+        "date": "2026-02-16",
+        "source": "smartcompany.com.au",
+        "article": "Proptech eGuarantee raises $5.5 million for its digital lease bond platform",
+        "url": "https://www.smartcompany.com.au/startupsmart/proptech-eguarantee-raises-5-5-million-for-its-digital-lease-bond-platform/",
+        "role": "lead"
+      }
+    ]
+  },
+  "Steve Baxter": {
+    "type": "investor",
+    "first_seen": "2026-02-16",
+    "last_seen": "2026-02-16",
+    "sightings": [
+      {
+        "date": "2026-02-16",
+        "source": "smartcompany.com.au",
+        "article": "Steve Baxter: Why I\u2019ll only invest in Australian defence startups that are serious about the US",
+        "url": "https://www.smartcompany.com.au/opinion/steve-baxter-why-ill-only-invest-in-australian-defence-startups-that-are-serious-about-the-us/",
+        "role": "unknown"
+      }
+    ]
+  },
+  "Qantas": {
+    "type": "investor",
+    "first_seen": "2026-02-16",
+    "last_seen": "2026-02-16",
+    "sightings": [
+      {
+        "date": "2026-02-16",
+        "source": "smartcompany.com.au",
+        "article": "HAMR Energy lands $10 million runway from Qantas and Airbus",
+        "url": "https://www.smartcompany.com.au/startupsmart/hamr-energy-10-million-series-a-qantas-airbus/",
+        "role": "unknown"
+      }
+    ]
+  },
+  "Airbus": {
+    "type": "investor",
+    "first_seen": "2026-02-16",
+    "last_seen": "2026-02-16",
+    "sightings": [
+      {
+        "date": "2026-02-16",
+        "source": "smartcompany.com.au",
+        "article": "HAMR Energy lands $10 million runway from Qantas and Airbus",
+        "url": "https://www.smartcompany.com.au/startupsmart/hamr-energy-10-million-series-a-qantas-airbus/",
+        "role": "unknown"
       }
     ]
   }
