@@ -145,5 +145,47 @@
         "role": "unknown"
       }
     ]
+  },
+  "Marco Pierre White": {
+    "type": "investor",
+    "first_seen": "2026-02-23",
+    "last_seen": "2026-02-23",
+    "sightings": [
+      {
+        "date": "2026-02-23",
+        "source": "startupdaily.net",
+        "article": "Restaurant deals app backed by Marco Pierre White raises $27 million Series B",
+        "url": "https://www.startupdaily.net/topic/funding/restaurant-deals-app-backed-by-marco-pierre-white-raises-27-million-series-b/",
+        "role": "unknown"
+      }
+    ]
+  },
+  "Startmate": {
+    "type": "vc_firm",
+    "first_seen": "2026-02-23",
+    "last_seen": "2026-02-23",
+    "sightings": [
+      {
+        "date": "2026-02-23",
+        "source": "smartcompany.com.au",
+        "article": "24 Aussie startups that raised $91 million this week",
+        "url": "https://www.smartcompany.com.au/startupsmart/24-aussie-startups-raised-91-million-this-week/",
+        "role": "unknown"
+      }
+    ]
+  },
+  "Potentia": {
+    "type": "vc_firm",
+    "first_seen": "2026-02-23",
+    "last_seen": "2026-02-23",
+    "sightings": [
+      {
+        "date": "2026-02-23",
+        "source": "smartcompany.com.au",
+        "article": "HotDoc goes from GP to PE as founder confirms sale to Potentia",
+        "url": "https://www.smartcompany.com.au/startupsmart/hotdoc-potentia-sale-airtree/",
+        "role": "lead"
+      }
+    ]
   }
 }
