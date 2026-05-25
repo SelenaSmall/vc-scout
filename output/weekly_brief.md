@@ -1,4 +1,4 @@
-# VC Scout Weekly Brief — 2026-05-18
+# VC Scout Weekly Brief — 2026-05-25
 
 ## New this week
 
